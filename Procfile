@@ -1,2 +1,2 @@
-web: cd go-backend-app && go run main.go
+web: go run main.go
 
