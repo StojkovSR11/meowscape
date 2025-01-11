@@ -1,2 +1,3 @@
-web: go run main.go
+web: ./bin/go-backend-app
+
 
