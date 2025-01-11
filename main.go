@@ -2,15 +2,24 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		log.Fatal("PORT environment variable not set")
+	}
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, Heroku! This is a basic Go backend app.")
+		fmt.Fprintf(w, "Hello, world!")
 	})
 
-	port := "8080" // Heroku dynamically assigns ports, but we will use 8080 as the default
-	fmt.Printf("Server starting on port %s...\n", port)
-	http.ListenAndServe(":"+port, nil)
+	log.Printf("Server starting on port %s...\n", port)
+	err := http.ListenAndServe(":"+port, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
