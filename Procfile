@@ -1,4 +1,0 @@
-./bin/go-backend-app
-
-
-
