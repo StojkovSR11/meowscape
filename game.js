@@ -8,13 +8,27 @@ let blockedFields = [];
 let isPlayerTurn = true;
 
 window.onload = () => {
+  // Play music when user clicks anywhere on the body (with some additional check for interaction)
   const audio = document.getElementById('bg-music');
   document.body.addEventListener('click', () => {
     if (audio.paused) {
       audio.play().catch(err => console.warn('Audio play failed:', err));
     }
-  }, { once: true });
+  }, { once: true }); // Ensures this runs only once when the user clicks on the page
+
+  const toggleMusicButton = document.getElementById('toggleMusic');
+  toggleMusicButton.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().catch(err => console.warn('Audio play failed:', err));
+      toggleMusicButton.textContent = "Pause Music";
+    } else {
+      audio.pause();
+      toggleMusicButton.textContent = "Play Music";
+    }
+  });
 };
+
+
 
 
 // Initialize grid
@@ -162,6 +176,7 @@ function resetGame() {
 }
 
 // Display a modal for win/loss
+// Display a modal for win/loss
 function showModal(message) {
   const modal = document.createElement('div');
   modal.classList.add('modal');
@@ -172,19 +187,23 @@ function showModal(message) {
     </div>
   `;
 
-    const meowSound = document.getElementById('meow-sound');
+  // Ensure the sound plays when the modal appears
+  const meowSound = document.getElementById('meow-sound');
   if (meowSound) {
     meowSound.currentTime = 0;
     meowSound.play().catch(err => console.warn('Failed to play meow:', err));
   }
 
+  // Append the modal to the body
   document.body.appendChild(modal);
 
+  // Close the modal when the button is clicked
   document.getElementById('closeModal').addEventListener('click', () => {
     modal.remove();
     resetGame();
   });
 }
+
 
 // Set up event listeners
 restartButton.addEventListener('click', resetGame);

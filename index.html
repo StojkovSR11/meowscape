@@ -7,12 +7,20 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <audio id="bg-music" src="goofy.mp3" loop></audio>
+  
+  <audio id="bg-music" src="goofy.mp3" autoplay loop></audio>
   <audio id="meow-sound" src="meow.mp3"></audio>
   <audio id="brick-sound" src="brick.mp3"></audio>
-  <h1>Trap the Cat Game</h1>
-  <div id="grid"></div>
-  <button id="restart">Restart Game</button>
+
+  <div class="container">
+    <h1>Trap the Cat Game</h1>
+    <div id="grid"></div>
+    <div class="buttons">
+      <button id="toggleMusic">Music</button>
+      <button id="restart">Restart Game</button>
+    </div>
+  </div>
+
   <script src="game.js"></script>
 </body>
 </html>
