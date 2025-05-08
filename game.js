@@ -7,6 +7,16 @@ let catPosition = { x: Math.floor(cols / 2), y: Math.floor(rows / 2) };
 let blockedFields = [];
 let isPlayerTurn = true;
 
+window.onload = () => {
+  const audio = document.getElementById('bg-music');
+  document.body.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().catch(err => console.warn('Audio play failed:', err));
+    }
+  }, { once: true });
+};
+
+
 // Initialize grid
 function createGrid() {
   gridContainer.innerHTML = '';
