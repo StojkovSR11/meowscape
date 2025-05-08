@@ -79,6 +79,13 @@ function handleCellClick(event) {
     event.target.classList.add('blocked');
     blockedFields.push({ x, y });
     isPlayerTurn = false; // End player's turn
+
+    const brickSound = document.getElementById('brick-sound');
+  if (brickSound) {
+    brickSound.currentTime = 0;
+    brickSound.play().catch(err => console.warn('Failed to play brick:', err));
+  }
+
     moveCat(); // Cat's turn
   }
 }
@@ -164,6 +171,13 @@ function showModal(message) {
       <button id="closeModal">Close</button>
     </div>
   `;
+
+    const meowSound = document.getElementById('meow-sound');
+  if (meowSound) {
+    meowSound.currentTime = 0;
+    meowSound.play().catch(err => console.warn('Failed to play meow:', err));
+  }
+
   document.body.appendChild(modal);
 
   document.getElementById('closeModal').addEventListener('click', () => {
