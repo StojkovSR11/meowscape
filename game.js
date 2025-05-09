@@ -4,6 +4,8 @@ const rows = 10;
 const cols = 16;
 let grid = [];
 let catPosition = { x: Math.floor(cols / 2), y: Math.floor(rows / 2) };
+if (Math.random() < 0.5) catPosition.x -= 1; 
+if (Math.random() < 0.5) catPosition.y -= 1;
 let blockedFields = [];
 let isPlayerTurn = true;
 
@@ -170,6 +172,8 @@ function updateGrid() {
 // Reset the game
 function resetGame() {
   catPosition = { x: Math.floor(cols / 2), y: Math.floor(rows / 2) };
+  if (Math.random() < 0.5) catPosition.x -= 1;
+  if (Math.random() < 0.5) catPosition.y -= 1;
   blockedFields = [];
   isPlayerTurn = true;
   createGrid();
