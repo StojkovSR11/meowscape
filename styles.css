@@ -1,5 +1,6 @@
 /* Global Styles */
 body {
+  font-family: 'Fredoka', sans-serif;
   background: linear-gradient(to bottom, #a3bffa, #56b4e9);
   min-height: 100vh;
   margin: 0;
@@ -29,6 +30,7 @@ body {
 
 /* Title Styling */
 h1 {
+  font-family: 'Fredoka', sans-serif;
   font-size: 2.5rem;
   color: #1e3a8a;
   font-weight: bold;
@@ -38,6 +40,7 @@ h1 {
 }
 
 h2 {
+  font-family: 'Fredoka', sans-serif;
   font-size: 1.5rem;
   color: #1e3a8a;
   font-weight: bold;
@@ -99,6 +102,7 @@ h2 {
 
 /* Button Styling */
 button {
+  font-family: 'Fredoka', sans-serif;
   padding: 3px 6px;
   font-size: 16px;
   cursor: pointer;
@@ -128,6 +132,7 @@ button:hover {
 
 /* Modal Styles */
 .modal {
+  font-family: 'Fredoka', sans-serif;
   position: fixed;
   top: 0;
   left: 0;
